@@ -11,6 +11,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
+import com.lia.common.CommonObject;
+
 public class RetrieveHandler {
    private String _driver = "com.mysql.cj.jdbc.Driver";
 
@@ -20,7 +22,7 @@ public class RetrieveHandler {
          DbUtils.loadDriver(_driver);
          connection = DriverManager.getConnection(p.getPassword(), p.getUser(), p.getPassword());
          QueryRunner runner = new QueryRunner();
-         String query = buildRetrieveScript(item.fetchObjectName(), item.fetchFieldName(), conditionArray);
+         String query = buildRetrieveScript(item.fetchObjectName(), item.fetchPropertyName(), conditionArray);
          ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) runner.query(query, new MapListHandler());
          return list;
       }
@@ -38,7 +40,7 @@ public class RetrieveHandler {
          DbUtils.loadDriver(_driver);
          connection = DriverManager.getConnection(p.getPassword(), p.getUser(), p.getPassword());
          QueryRunner runner = new QueryRunner();
-         String query = buildRetrieveScript(item.fetchObjectName(), item.fetchFieldName(), conditionList);
+         String query = buildRetrieveScript(item.fetchObjectName(), item.fetchPropertyName(), conditionList);
          Map<String, Object> map = (Map<String, Object>) runner.query(query, new MapHandler());
          return map;
       }

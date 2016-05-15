@@ -8,6 +8,8 @@ import java.util.Map.Entry;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 
+import com.lia.common.CommonObject;
+
 public class DeleteHandler {
    private String _driver = "com.mysql.cj.jdbc.Driver";
 
@@ -17,7 +19,7 @@ public class DeleteHandler {
          Class.forName(_driver);
          connection = DriverManager.getConnection(p.getUrl(), p.getUser(), p.getPassword());
          QueryRunner query = new QueryRunner();
-         String script = buildDeleteScript(item.fetchObjectName(), item.exportKeyFieldMap());
+         String script = buildDeleteScript(item.fetchObjectName(), item.exportKeyPropertyMap());
          query.update(connection, script);
       }
       catch (Exception ex){

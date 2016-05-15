@@ -8,6 +8,8 @@ import java.util.Map.Entry;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 
+import com.lia.common.CommonObject;
+
 public class UpdateHandler {
    private String _driver = "com.mysql.cj.jdbc.Driver";
 
@@ -17,7 +19,7 @@ public class UpdateHandler {
          DbUtils.loadDriver(_driver);
          connection = DriverManager.getConnection(p.getPassword(), p.getUser(), p.getPassword());
          QueryRunner query = new QueryRunner();
-         String script = buildUpdateScript(item.fetchObjectName(), item.exportKeyFieldMap(), item.exportValueFieldMap());
+         String script = buildUpdateScript(item.fetchObjectName(), item.exportKeyPropertyMap(), item.exportValueFieldMap());
          query.update(script);
       }
       catch (Exception ex){
