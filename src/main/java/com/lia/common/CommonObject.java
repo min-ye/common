@@ -22,6 +22,8 @@ public abstract class CommonObject {
    
    public abstract Object[] fetchObject();
    
+   public abstract String fetchDescription();
+   
    protected String getPropertyValueString(String value) {
       return String.format("'%s'", value);
    }
