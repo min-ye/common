@@ -1,5 +1,5 @@
 package com.lia.common.exception;
 
-public class ForceCancelException extends Exception {
+public class CancelInputException extends Exception {
    private static final long serialVersionUID = 1L;
 }
