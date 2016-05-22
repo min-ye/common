@@ -27,7 +27,7 @@ public enum JsonHelper {
          String[] nameArray = JSONObject.getNames(obj);
          Map<String, String> item = new HashMap<String, String>();
          for (String name : nameArray){
-            item.put(name, obj.getString(name));
+            item.put(name, obj.get(name).toString());
          }
          output.add(item);         
       }
