@@ -2,6 +2,7 @@ package com.lia.common;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public abstract class CommonObject {
    public abstract String fetchObjectName();
@@ -35,4 +36,37 @@ public abstract class CommonObject {
    protected String getPropertyValueString(double value) {
       return String.format("%d", value);
    }
+   
+   protected String convertToString(Object obj){
+      return obj.toString();
+   }
+   
+   protected UUID convertToUUID(Object obj) {
+      UUID value = (UUID) obj;
+      return value;
+   }
+   
+   protected Integer convertToInteger(Object obj) {
+      Integer value = (Integer) obj;
+      return value;
+   }
+   
+   protected Short convertToShort(Object obj) {
+      Short value = (Short) obj;
+      return value;
+   }
+   
+   protected Double convertToDouble(Object obj) {
+      Double value = (Double) obj;
+      return value;
+   }
+   
+   protected Float convertToFloat(Object obj) {
+      Float value = (Float) obj;
+      return value;
+   }
+
+
+
+
 }
