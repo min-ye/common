@@ -19,7 +19,7 @@ public class UpdateHandler {
          DbUtils.loadDriver(_driver);
          connection = DriverManager.getConnection(p.getPassword(), p.getUser(), p.getPassword());
          QueryRunner query = new QueryRunner();
-         String script = buildUpdateScript(item.fetchObjectName(), item.exportKeyPropertyMap(), item.exportValueFieldMap());
+         String script = buildUpdateScript(item.fetchObjectName(), item.exportKeyPropertyMap(), item.exportValuePropertyMap());
          query.update(script);
       }
       catch (Exception ex){

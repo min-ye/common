@@ -17,7 +17,7 @@ public abstract class CommonObject {
    
    public abstract Map<String, String> exportKeyPropertyMap();
    
-   public abstract Map<String, String> exportValueFieldMap();
+   public abstract Map<String, String> exportValuePropertyMap();
    
    public abstract List<String> fetchPropertyName();
    
@@ -35,6 +35,10 @@ public abstract class CommonObject {
    
    protected String getPropertyValueString(double value) {
       return String.format("%d", value);
+   }
+   
+   protected String getPropertyValueString(UUID value) {
+      return String.format("'%s'", value.toString());
    }
    
    protected String convertToString(Object obj){
@@ -65,8 +69,5 @@ public abstract class CommonObject {
       Float value = (Float) obj;
       return value;
    }
-
-
-
 
 }
