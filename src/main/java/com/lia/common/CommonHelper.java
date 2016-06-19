@@ -20,7 +20,7 @@ import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
 
 public class CommonHelper {
-   public static Short ConvertToShort(String input, Short defaultValue) {
+   public static Short convertToShort(String input, Short defaultValue) {
       try {
          return Short.parseShort(input);
       }
@@ -29,7 +29,7 @@ public class CommonHelper {
       }
    }
    
-   public static Integer ConvertToInteger(String input, Integer defaultValue) {
+   public static Integer convertToInteger(String input, Integer defaultValue) {
       try {
          return Integer.parseInt(input);
       }
@@ -38,7 +38,7 @@ public class CommonHelper {
       }
    }
    
-   public static Long ConvertToLong(String input, Long defaultValue) {
+   public static Long convertToLong(String input, Long defaultValue) {
       try {
          return Long.parseLong(input);
       }
@@ -47,7 +47,7 @@ public class CommonHelper {
       }
    }
    
-   public static Float ConvertToFloat(String input, Float defaultValue) {
+   public static Float convertToFloat(String input, Float defaultValue) {
       try {
          return Float.parseFloat(input);
       }
@@ -56,7 +56,7 @@ public class CommonHelper {
       }
    }
    
-   public static Double ConvertToDouble(String input, Double defaultValue) {
+   public static Double convertToDouble(String input, Double defaultValue) {
       try {
          return Double.parseDouble(input);
       }
@@ -65,7 +65,7 @@ public class CommonHelper {
       }
    }
    
-   public static Boolean ConvertToBoolean(String input, Boolean defaultValue) {
+   public static Boolean convertToBoolean(String input, Boolean defaultValue) {
       try {
          return Boolean.parseBoolean(input);
       }
