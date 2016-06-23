@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -68,6 +69,15 @@ public class CommonHelper {
    public static Boolean convertToBoolean(String input, Boolean defaultValue) {
       try {
          return Boolean.parseBoolean(input);
+      }
+      catch (Exception ex) {
+         return defaultValue;
+      }
+   }
+   
+   public static UUID convertToUUID(String input, UUID defaultValue) {
+      try {
+         return UUID.fromString(input);
       }
       catch (Exception ex) {
          return defaultValue;
