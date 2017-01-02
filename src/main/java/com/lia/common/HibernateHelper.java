@@ -7,38 +7,37 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateHelper {
-private static final Log log=LogFactory.getLog(HibernateHelper.class);
+   private static final Log log=LogFactory.getLog(HibernateHelper.class);
 
-private static final SessionFactory sessionFactory;
-static
-{
-        try{
-              sessionFactory=new Configuration().configure().buildSessionFactory();
-   
-       }catch(Throwable ex)
-       {
-              log.error("Initial SessionFactory creation failed.",ex);
-              throw new ExceptionInInitializerError(ex);
-       }
-}
-public static final ThreadLocal thread_var=new ThreadLocal();
+   private static final SessionFactory sessionFactory;
+   static
+   {
+      try {
+         sessionFactory=new Configuration().configure().buildSessionFactory();
+      }
+      catch(Throwable ex) {
+         log.error("Initial SessionFactory creation failed.",ex);
+         throw new ExceptionInInitializerError(ex);
+      }
+   }
 
-public static Session currentSession()
-{
+   public static final ThreadLocal thread_var=new ThreadLocal();
+
+   public static Session currentSession()
+   {
       Session s=(Session)thread_var.get();
-       if(s==null)
-      {
+      if(s==null) {
         s=sessionFactory.openSession();
-          thread_var.set(s);
-    }
-     return s;
-}
+        thread_var.set(s);
+      }
+      return s;
+   }
 
-public static void closeSession()
-{
-       Session s=(Session)thread_var.get();
+   public static void closeSession()
+   {
+      Session s=(Session)thread_var.get();
       if(s!=null)
-              s.close();
-       thread_var.set(null);
-}
+         s.close();
+      thread_var.set(null);
+   }
 }
